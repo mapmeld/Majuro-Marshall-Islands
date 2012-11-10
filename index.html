@@ -27,7 +27,7 @@ function drawIsland(){
   //console.log("coord distance: " + coordDistance);
   
   // draw road as vertical centerline of points
-  var centerline = 600;
+  var centerline = 560;
   var canvas = document.getElementById("islandcanvas").getContext("2d");
   canvas.strokeStyle = "#00f";
   canvas.lineWidth = 3;
@@ -93,15 +93,28 @@ function drawIsland(){
       yOffset += Math.sqrt( Math.pow(closePt2Dist, 2) - Math.pow(height, 2));
     }
 
-    if(closePt1[1] < island[pt][1]){
+    /*if(closePt1[1] < island[pt][1]){
       xOffset = Math.round( height * 3000 / coordDistance * 7);
       leftPoints.push([ xOffset - 1, yOffset - 1 ]);
     }
     else{
       xOffset = Math.round( height * 3000 / coordDistance * -7)
       rightPoints.push([ xOffset - 1, yOffset - 1 ]);      
+    }*/
+    
+    // calculate inner shore or outer shore, based on distance to central point
+    var centerlat = 7.0842;
+    var centerlng = 171.232;
+    var roadDist = Math.sqrt( Math.pow( closePt1[1] - centerlat, 2) + Math.pow( closePt1[0] - centerlng, 2) );
+    var shoreDist = Math.sqrt( Math.pow( island[pt][1] - centerlat, 2) + Math.pow( island[pt][0] - centerlng, 2) );
+    if(shoreDist > roadDist){
+      xOffset = Math.round( height * 3000 / coordDistance * 5);
+      leftPoints.push([ xOffset - 1, yOffset - 1 ]);
     }
-
+    else{
+      xOffset = Math.round( height * 3000 / coordDistance * -5)
+      rightPoints.push([ xOffset - 1, yOffset - 1 ]);
+    }
     //canvas.rect(centerline + xOffset - 1, yOffset - 1, 2, 2);
     //canvas.fill();
   }
@@ -123,12 +136,12 @@ function drawIsland(){
   }  
   canvas.lineTo(centerline, 0);
 
-  canvas.moveTo(centerline - 400, 0);
+  canvas.moveTo(centerline - 340, 0);
   for(var i=0;i<leftPoints.length;i++){
-    canvas.lineTo(centerline - 400 + leftPoints[i][0] / 7, leftPoints[i][1] + 5);
+    canvas.lineTo(centerline - 340 + leftPoints[i][0] / 5, leftPoints[i][1] + 5);
   }
   for(var i=0;i<rightPoints.length;i++){
-    canvas.lineTo(centerline - 400 + rightPoints[i][0] / 7, rightPoints[i][1] + 5);
+    canvas.lineTo(centerline - 340 + rightPoints[i][0] / 5, rightPoints[i][1] + 5);
   }
 
   canvas.stroke();

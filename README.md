@@ -1,5 +1,5 @@
 <table><tr><td style="width:200px;">
-<img src="http://i.imgur.com/bfwaQ.png" width="200" style="width:200px;"/>
+<img src="http://i.imgur.com/0G8VC.png" width="200" style="width:200px;"/>
 </td>
 <td style="vertical-align:top;">
 
