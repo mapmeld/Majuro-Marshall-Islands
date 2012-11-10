@@ -19,6 +19,8 @@ Anyhow, I had a crazy idea to straighten out the road into one long line, and di
 <br/><br/>
 <a href="http://mapmeld.github.com/Majuro-Marshall-Islands/">Interactive version</a>
 <br/><br/>
+Also see <a href="http://mapmeld.github.com/Majuro-Marshall-Islands/arno.html">Arno Atoll</a>
+<br/><br/>
 Data &copy; OpenStreetMap contributors
 </td>
 </tr></table>
