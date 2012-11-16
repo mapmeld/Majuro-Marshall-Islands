@@ -5,7 +5,7 @@
 
 <h3>Majuro Atoll, Marshall Islands</h3>
 <br/><br/>
-Majuro Atoll is a chain of small islands in the American-owned Marshall Islands.  It's the one at left, here:
+Majuro Atoll is a chain of small islands in the Marshall Islands.  It's the one at left, here:
 <br/><br/>
 <img src="http://eoimages.gsfc.nasa.gov/images/imagerecords/8000/8080/arnoatoll_l7_2000137.jpg" width="460"/>
 <br/><br/>
@@ -19,7 +19,7 @@ Anyhow, I had a crazy idea to straighten out the road into one long line, and di
 <br/><br/>
 <a href="http://mapmeld.github.com/Majuro-Marshall-Islands/">Interactive version</a>
 <br/><br/>
-Also see <a href="http://mapmeld.github.com/Majuro-Marshall-Islands/arno.html">Arno Atoll</a>
+Also see <a href="http://mapmeld.github.com/Majuro-Marshall-Islands/arno.html">Arno Atoll</a> (at right in the same satellite photo)
 <br/><br/>
 Data &copy; OpenStreetMap contributors
 </td>
