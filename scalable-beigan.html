@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scalable Beigan</title>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyDHHf_1Brj5HO-FFjfdZwPly_K5mId9WOk"></script>
+    <script type="text/javascript">
+var map;
+var island = "119.969774,26.194082 119.969774,26.194884 119.972071,26.194818 119.973280,26.192426 119.974895,26.192522 119.975311,26.194435 119.973689,26.194914 119.973667,26.197409 119.971357,26.199587 119.972497,26.200329 119.972964,26.205430 119.971481,26.207285 119.972938,26.209121 119.972472,26.212433 119.974647,26.216140 119.977234,26.215369 119.983131,26.218584 119.984543,26.219176 119.989448,26.217912 119.988685,26.215269 119.990428,26.214586 119.992064,26.217322 119.993152,26.218686 119.997216,26.217637 119.997553,26.222354 120.000196,26.222467 119.999521,26.219015 120.000725,26.218917 120.003157,26.222467 120.007457,26.222318 120.007877,26.219474 120.009679,26.218381 120.009533,26.215274 120.011363,26.213510 120.011589,26.212631 120.014955,26.212825 120.013768,26.214293 120.011910,26.214390 120.011826,26.216253 120.012384,26.218017 120.010879,26.218674 120.010086,26.220417 120.011792,26.222693 120.014214,26.222949 120.013062,26.225078 120.015646,26.226784 120.015226,26.228636 120.012117,26.228321 120.010138,26.228422 120.007803,26.227513 120.007259,26.224289 120.004697,26.223946 120.003058,26.224639 120.005367,26.227397 120.006585,26.227407 120.006610,26.228908 120.005191,26.231385 120.006695,26.234538 120.004602,26.235440 120.002055,26.233464 120.000625,26.237725 119.995431,26.238436 119.993211,26.236211 119.994264,26.233527 119.985938,26.227992 119.982690,26.223865 119.979561,26.225645 119.974317,26.223058 119.971828,26.220134 119.967530,26.220594 119.968333,26.217734 119.969209,26.217734 119.970007,26.214475 119.971262,26.210875 119.968997,26.209214 119.967201,26.206009 119.968232,26.205247 119.965989,26.201959 119.966403,26.194082";
+
+function init(){
+  // the Google Map
+  map = new google.maps.Map( document.getElementById("map"), {
+    center: new google.maps.LatLng( 26.2148, 119.9844 ),
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.SATELLITE
+  });
+
+  // convert island coordinate strings into [ [lng1, lat1], [lng2, lat2], ... ] array of arrays
+  island = island.split(" ");
+  for(var pt=0;pt<island.length;pt++){
+    island[pt] = new google.maps.LatLng( island[pt].split(",")[1] * 1.0, island[pt].split(",")[0] * 1.0 );
+  }
+  
+  var islandpoly = new google.maps.Polygon({
+    paths: [ island ],
+    strokeColor: "#0000FF",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#FF0000",
+    fillOpacity: 0.35,
+    map: map,
+    geodesic: true,
+    draggable: true
+  });
+}
+    </script>
+    <style type="text/css">
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: none;
+  font-family: verdana, arial, sans-serif;
+}
+#topbanner{
+  height: 10%;
+  margin: 0;
+  padding: 0;
+  overflow: none;
+  text-align: center;
+}
+#topbanner h2{
+  margin-left: auto;
+  margin-right: auto;
+}
+#map{
+  width: 100%;
+  height: 90%;
+  margin: 0;
+  padding: 0;
+  overflow: none;
+}
+    </style>
+  </head>
+  <body onload="init();">
+    <div id="topbanner">
+      <h2>Draggable, Scaled Beigan</h2>
+    </div>
+    <div id="map"></div>
+  </body>
+</html>
